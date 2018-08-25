@@ -18,17 +18,17 @@ This repository contains an example of embedding the Signal Sciences Agent in th
 ####  1. Set Agent Keys in values-sigsci.yaml
 
 #### 2. Build the nginx ingress + Signal Sciences Module container 
-*Set whatever repository name you'd like here, just be sure to set* `controller.image.repository:` *to match in [values-sigsci.yaml](values-sigsci.yaml)*
+*Set whatever registry + repository name you'd like here, just be sure to set* `controller.image.repository:` *to match in [values-sigsci.yaml](values-sigsci.yaml)*
 ```
 cd sigsci-module-nginx-ingress
-docker build -t sigsci/sigsci-module-nginx-ingress:latest .
+docker build -t myregistry/sigsci-module-nginx-ingress:0.17.1 .
 ```
 
 #### 3. Build the Signal Sciences Agent sidecar container
-*Again, set whatever repository name you'd like here, just be sure to set* `controller.extraContainers.image:` *to match in [values-sigsci.yaml](values-sigsci.yaml)*
+*Again, set whatever resgistry + repository name you'd like here, just be sure to set* `controller.extraContainers.image:` *to match in [values-sigsci.yaml](values-sigsci.yaml)*
 ```
 cd ../sigsci-agent
-docker build -t sigsci/sigsci-agent:latest .
+docker build -t myregistry/sigsci-agent:latest .
 ```
 
 #### 3. Create configMap with custom SigSci nginx template
