@@ -1,0 +1,37 @@
+controller:
+
+    # Replace the default nginx-controller image with a custom image that contains the Signal Sciences nginx Module
+    image:
+      repository: sigsci/sigsci-module-nginx-ingress
+      tag: "0.17.1"
+      pullPolicy: IfNotPresent
+
+    # Load a custom nginx template with the Signal Sciences Lua directives included 
+    customTemplate:
+      configMapName: "sigsci-nginx-template"
+      configMapKey: "nginx.tmpl"
+
+    # Load sidecar container image that houses the Signal Sciences Agent
+    extraContainers:
+      - name: sigsci-agent
+        image: sigsci/sigsci-agent:latest
+        imagepullPolicy: IfNotPresent
+        volumeMounts:
+        - name: sigsci-socket
+          mountPath: /var/run
+
+        # Set Signal Sciences Agent keys
+        env:
+        - name: SIGSCI_ACCESSKEYID
+          value: SETME
+        - name: SIGSCI_SECRETACCESSKEY
+          value: SETME
+
+    # Mount shared volume for sigsci.sock file
+    extraVolumeMounts:
+      - name: sigsci-socket
+        mountPath: /var/run
+
+    extraVolumes:
+      - name: sigsci-socket
+        emptyDir: {}
