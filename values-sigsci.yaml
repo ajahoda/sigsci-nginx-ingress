@@ -3,7 +3,7 @@ controller:
     # Replaces the default nginx-controller image with a custom image that contains the Signal Sciences nginx Module
     image:
       repository: myregistry/sigsci-module-nginx-ingress
-      tag: "0.17.1"
+      tag: "0.18.0"
       pullPolicy: IfNotPresent
 
     # Loads a custom nginx template with the Signal Sciences Lua directives included 

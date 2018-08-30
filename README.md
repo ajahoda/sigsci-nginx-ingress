@@ -21,7 +21,7 @@ This repository contains an example of embedding the Signal Sciences Agent in th
 *Set whatever registry + repository name you'd like here, just be sure to set* `controller.image.repository:` *to match in [values-sigsci.yaml](values-sigsci.yaml)*
 ```
 cd sigsci-module-nginx-ingress
-docker build -t myregistry/sigsci-module-nginx-ingress:0.17.1 .
+docker build -t myregistry/sigsci-module-nginx-ingress:0.18.0 .
 ```
 
 #### 3. Build the Signal Sciences Agent sidecar container
