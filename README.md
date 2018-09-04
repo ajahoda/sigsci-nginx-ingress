@@ -5,7 +5,7 @@
 This repository contains an example of embedding the Signal Sciences Agent in the [ingress-nginx](https://github.com/kubernetes/ingress-nginx) Ingress controller installed via the [Helm](https://github.com/helm/charts/tree/master/stable/nginx-ingress) package manager:
 
 - [/sigsci-module-nginx-ingress/Dockerfile](/sigsci-module-nginx-ingress/Dockerfile)
-  - This container is a "wrapper" for the default `nginx-ingress-controller` container pulled by the `stable/nginx-ingress` Helm chart, and serves to simply add the Signal Sciences nginx Module files. You can set the image version in the Dockerfile, version used here is 0.17.1
+  - This container is a "wrapper" for the default `nginx-ingress-controller` container pulled by the `stable/nginx-ingress` Helm chart, and serves to simply add the Signal Sciences nginx Module files. You can set the image version in the Dockerfile, version used here is 0.18.0
 - [/sigsci-agent/Dockerfile](/sigsci-agent/Dockerfile)
   - This container is a sidecar, running the Signal Sciences Agent, that will be included in the same pod as the nginx-ingress-controller
 - [nginx.tmpl](nginx.tmpl)
